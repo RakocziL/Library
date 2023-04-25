@@ -10,21 +10,33 @@
 </head>
 <body>
     <button id="open-popup">Open Pop-up</button>
+    <button id="test">Test</button>
 
-<div id="popup-container">
-  <div id="popup">
-    <h2>Pop-up Form</h2>
-    <form>
-      <label for="name">Name:</label>
-      <input type="text" id="name" name="name"><br><br>
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email"><br><br>
-      <input type="submit" value="Submit">
-    </form>
-    <button id="close-popup">Close</button>
-  </div>
-  <div id="popup-overlay"></div>
-</div>
+
+    <!-- PopUp Window -->
+    <div id="popup-container">
+        <div id="popup">
+            <h2>Add New Book</h2>
+            <form>
+            <!-- Title -->
+            <label for="title">Title:</label>
+            <input type="text" id="title" name="title"><br><br>
+            <!-- Author -->
+            <label for="author">Author:</label>
+            <input type="text" id="author" name="author"><br><br>
+            <!-- Pages -->
+            <label for="pages">Pages:</label>
+            <input type="number" id="pages" name="pages"><br><br>
+            <!-- Read or not -->
+            <label for="read">Read:</label>
+            <input type="range" id="read" name="read" min="0" max="1" step="1"><br><br>
+            <!-- Submit Button -->
+            <input type="submit" value="Submit" id="submit">
+            </form>
+            <button id="close-popup">Close</button>
+        </div>
+        <div id="popup-overlay"></div>
+    </div>
 
     
 </body>

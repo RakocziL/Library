@@ -113,7 +113,7 @@ body, html{
                 grid-column:3/4;
                 grid-row:6/7;
             }
-                .cardSwitch input{
+                .checkBox{
                     display:none;
                 }
                 .switch{
@@ -137,13 +137,16 @@ body, html{
                     border-radius: 50%;
                     transition: all 0.3s ease-in-out;
                 }
-                input:checked + .switch{
+                .checkBox:checked + .switch{
                     background-color: green;
                 }
-                input:checked + .switch:before {
+                .checkBox:checked + .switch:before {
                     transform: translateX(26px);
                     background-color: aquamarine;
                   }
+                .switch:hover{
+                    cursor:pointer;
+                }
               
 
 

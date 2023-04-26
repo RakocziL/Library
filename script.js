@@ -2,10 +2,8 @@
 const testButton = document.getElementById("test");
 testButton.addEventListener("click", ()=>{
     myLibrary.forEach(books => {
-        console.log(books.title)
-        console.log(books.read)
+        createNewCard(books.title, books.author, books.pages, books.read);
     });
-    createNewCard();
 })
 /* PopUp Window events */
 const openPopupButton = document.getElementById('open-popup');
@@ -66,7 +64,7 @@ submitButton.addEventListener("click", (event) =>{
 
 /* Creating New Library Cards */
 var cardContainer = document.getElementById("cardContainer");
-function createNewCard(){
+function createNewCard(title, author, pages, read){
     /* Creating Elements */
     var newCard = document.createElement("div");
     var newCardTitle = document.createElement("p");
@@ -76,12 +74,16 @@ function createNewCard(){
     var newInput = document.createElement("input");
     var newSpan = document.createElement("span");
 
+    /* Setting the type of the input */
+    newInput.type = "checkbox";
+
     /* Adding classes */
     newCard.className = "libraryCard";
     newCardTitle.className = "cardTitle";
     newCardAuthor.className = "cardAuthor";
     newCardPages.className = "cardPages";
     newCardSwitch.className = "cardSwitch";
+    newInput.className = "checkBox"
     newSpan.className = "switch";
 
     /* Appending Children  */
@@ -92,4 +94,10 @@ function createNewCard(){
     newCard.appendChild(newCardSwitch);
     newCardSwitch.appendChild(newInput);
     newCardSwitch.appendChild(newSpan);
+
+    /* Adding Content */
+    newCardTitle.textContent = title;
+    newCardAuthor.textContent = "by "+author;
+    newCardPages.textContent ="Pages: "+pages;
+    newInput.checked = read;
 }

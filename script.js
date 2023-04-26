@@ -70,8 +70,16 @@ const submitButton = document.getElementById("submit");
 
 submitButton.addEventListener("click", (event) =>{
     event.preventDefault();
-    const newBook = new book(bookTitle.value,bookAuthor.value,bookPages.value,bookRead.value ==1? "Read":"Not Read");
+    const newBook = new book(bookTitle.value,bookAuthor.value,bookPages.value,bookRead.value ==1? true:false);
     addToLibrary(newBook);
+    createNewCard(newBook.title, newBook.author, newBook.pages, newBook.read==1 ? true:false);
+
+    bookTitle.value="";
+    bookAuthor.value="";
+    bookPages.value="";
+    bookRead.value="1";
+    popupContainer.style.display = 'none';
+
 });
 
 /* Creating New Library Cards */

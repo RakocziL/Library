@@ -6,12 +6,14 @@ body, html{
 }
 .content{
     height: 100%;
+    position: relative;
 
     display:grid;
     grid-template-rows: 1fr 8fr;
 }
     .header{
         background-color: #FF6969;
+        
 
         display:grid;
         grid-template-columns: repeat(10, 1fr);
@@ -49,8 +51,100 @@ body, html{
             grid-column: 9/10;
         }
     .library{
+        overflow: auto;
         background-color:#A6D0DD;
+        padding: 50px;
+
+        display:grid;
+        grid-template-columns: repeat(auto-fit, 285px);
+        grid-template-rows: repeat(auto-fit, 250px);
+        gap:50px;
     }
+        .libraryCard{
+            border-radius: 15px;
+            background-color:#FF6969;
+            padding: 15px;
+       
+
+            display:grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(6, 1fr);
+            gap:0;
+        }
+        .libraryCard p{
+            margin:0px;
+        }
+            .cardTitle{
+                font-size: 24px;
+
+                grid-column:1/4;
+                grid-row: 1/2;
+            }
+            .cardAuthor{
+                font-size: 18px;
+                color:#654E92;
+                padding-left:15px;
+
+                grid-column:1/4;
+                grid-row: 2/3;
+                
+            }
+            .cardPages{
+                font-size: 18px;
+                color:#654E92;
+
+                grid-column:1/2;
+                grid-row: 4/5;
+            }
+            .cardRange{
+                justify-self: right;
+                align-self: center;
+                width:50%;
+                grid-column:3/4;
+                grid-row: 6/7;
+            }
+            .cardSwitch{
+                justify-self: right;
+                position: relative;
+                display:inline-block;
+                width: 60px;
+                height: 34px;
+
+                grid-column:3/4;
+                grid-row:6/7;
+            }
+                .cardSwitch input{
+                    display:none;
+                }
+                .switch{
+                    position:absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    background-color:#6C9BCF;
+                    border-radius: 34px;
+                    transition: all 0.3s ease-in-out;
+                }
+                .switch:before{
+                    position: absolute;
+                    content: "";
+                    height: 26px;
+                    width: 26px;
+                    left: 4px;
+                    bottom: 4px;
+                    background-color: #654E92;
+                    border-radius: 50%;
+                    transition: all 0.3s ease-in-out;
+                }
+                input:checked + .switch{
+                    background-color: green;
+                }
+                input:checked + .switch:before {
+                    transform: translateX(26px);
+                    background-color: aquamarine;
+                  }
+              
 
 
 

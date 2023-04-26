@@ -5,6 +5,7 @@ testButton.addEventListener("click", ()=>{
         console.log(books.title)
         console.log(books.read)
     });
+    createNewCard();
 })
 /* PopUp Window events */
 const openPopupButton = document.getElementById('open-popup');
@@ -63,3 +64,32 @@ submitButton.addEventListener("click", (event) =>{
     addToLibrary(newBook);
 });
 
+/* Creating New Library Cards */
+var cardContainer = document.getElementById("cardContainer");
+function createNewCard(){
+    /* Creating Elements */
+    var newCard = document.createElement("div");
+    var newCardTitle = document.createElement("p");
+    var newCardAuthor = document.createElement("p");
+    var newCardPages = document.createElement("p");
+    var newCardSwitch = document.createElement("label");
+    var newInput = document.createElement("input");
+    var newSpan = document.createElement("span");
+
+    /* Adding classes */
+    newCard.className = "libraryCard";
+    newCardTitle.className = "cardTitle";
+    newCardAuthor.className = "cardAuthor";
+    newCardPages.className = "cardPages";
+    newCardSwitch.className = "cardSwitch";
+    newSpan.className = "switch";
+
+    /* Appending Children  */
+    cardContainer.appendChild(newCard);
+    newCard.appendChild(newCardTitle);
+    newCard.appendChild(newCardAuthor);
+    newCard.appendChild(newCardPages);
+    newCard.appendChild(newCardSwitch);
+    newCardSwitch.appendChild(newInput);
+    newCardSwitch.appendChild(newSpan);
+}

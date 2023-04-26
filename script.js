@@ -5,6 +5,18 @@ testButton.addEventListener("click", ()=>{
         createNewCard(books.title, books.author, books.pages, books.read);
     });
 })
+
+
+/* OnLoad */
+function testLoad(){
+    myLibrary.forEach(books => {
+        createNewCard(books.title, books.author, books.pages, books.read);
+    });
+}
+
+window.onload=testLoad;
+
+
 /* PopUp Window events */
 const openPopupButton = document.getElementById('open-popup');
 const closePopupButton = document.getElementById('close-popup');

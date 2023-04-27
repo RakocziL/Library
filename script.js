@@ -93,6 +93,11 @@ function createNewCard(title, author, pages, read){
     var newCardSwitch = document.createElement("label");
     var newInput = document.createElement("input");
     var newSpan = document.createElement("span");
+    var newCardButton = document.createElement("button");
+    var newDeleteIcon = new Image();
+
+    /* Setting src for icons */
+    newDeleteIcon.src = "icons/delete.svg"
 
     /* Setting the type of the input */
     newInput.type = "checkbox";
@@ -105,6 +110,7 @@ function createNewCard(title, author, pages, read){
     newCardSwitch.className = "cardSwitch";
     newInput.className = "checkBox"
     newSpan.className = "switch";
+    newCardButton.className = "deleteButton";
 
     /* Appending Children  */
     cardContainer.appendChild(newCard);
@@ -112,12 +118,38 @@ function createNewCard(title, author, pages, read){
     newCard.appendChild(newCardAuthor);
     newCard.appendChild(newCardPages);
     newCard.appendChild(newCardSwitch);
+    newCard.appendChild(newCardButton)
     newCardSwitch.appendChild(newInput);
     newCardSwitch.appendChild(newSpan);
+    newCardButton.appendChild(newDeleteIcon);
 
     /* Adding Content */
     newCardTitle.textContent = title;
     newCardAuthor.textContent = "by "+author;
     newCardPages.textContent ="Pages: "+pages;
     newInput.checked = read;
+
+    /* Adding Event to Delete Button */
+    newCardButton.addEventListener("mouseover", ()=>{
+        newDeleteIcon.src = "icons/empty.svg";
+        newCardButton.style.transform = "scale(1.2)";
+    });
+    newCardButton.addEventListener("mouseleave", ()=>{
+        newDeleteIcon.src = "icons/delete.svg";
+        newCardButton.style.transform = "";
+    });
+    newCardButton.addEventListener("click", ()=>{
+        newCard.remove();
+        var x = 0;
+        myLibrary.forEach(books =>{
+            if(books.title == title && books.author == author && books.pages == pages && books.read == read){
+                myLibrary.splice(x, 1);
+            }
+            x++;
+        });
+    });
 }
+
+/* Deleteing Cards */
+
+    /* Deleting Button Effect */

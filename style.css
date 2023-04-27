@@ -103,6 +103,18 @@ body, html{
                 grid-column:3/4;
                 grid-row: 6/7;
             }
+            .deleteButton{
+                width: 50%;
+                border: none;
+                background-color:#FF6969;
+                cursor: pointer;
+
+                grid-column: 1/2;
+                grid-row: 6/7;
+            }
+                #closedDelete{
+                    display:none;
+                }
             .cardSwitch{
                 justify-self: right;
                 position: relative;

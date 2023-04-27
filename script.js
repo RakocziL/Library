@@ -129,7 +129,7 @@ function createNewCard(title, author, pages, read){
     newCardPages.textContent ="Pages: "+pages;
     newInput.checked = read;
 
-    /* Adding Event to Delete Button */
+    /* Adding Events to Delete Button */
     newCardButton.addEventListener("mouseover", ()=>{
         newDeleteIcon.src = "icons/empty.svg";
         newCardButton.style.transform = "scale(1.2)";
@@ -148,8 +148,13 @@ function createNewCard(title, author, pages, read){
             x++;
         });
     });
+
+    /* Adding Event to the Read Switch */
+    newInput.addEventListener("input", ()=>{
+        myLibrary.forEach(books =>{
+            if(books.title == title && books.author == author && books.pages == pages && books.read == read){
+                books.read = newInput.checked;
+            }
+        });
+    });
 }
-
-/* Deleteing Cards */
-
-    /* Deleting Button Effect */
